@@ -3,7 +3,7 @@ from datetime import datetime
 from dateutil.parser import parse
 from urllib.parse import urljoin, quote
 from markupsafe import escape
-from flask import Flask, request, render_template, url_for, current_app
+from flask import Flask, request, url_for, current_app
 
 app = Flask(__name__)
 
@@ -11,6 +11,7 @@ movie_genre = {}
 tv_genre = {}
 
 # TODO: 可能前端handle 500 Internal Server Error when send wrong query string
+# TODO: 注意average vote保留最多两位小数，如果刚好是整数怎么办？
 @app.before_first_request
 def extract_genre():
     raw_movie_genre = requests.get("https://api.themoviedb.org/3/genre/movie/list?api_key=788c93d7dc54e946665b5958c8ff0a3a&language=en-US")
@@ -340,7 +341,8 @@ def movie_review(movie_id):
                 else:
                     instance['username'] = ''
                 if 'rating' in author_details and author_details['rating']:
-                    instance['rating'] = str(author_details['rating'] / 2) + '/5'
+                    # instance['rating'] = str(author_details['rating'] / 2) + '/5'
+                    instance['rating'] = str(float('%.1f' % (author_details['rating'] / 2))) + '/5'
                 else:
                     instance['rating'] = ''
             else:
@@ -508,7 +510,8 @@ def tv_review(tv_id):
                 else:
                     instance['username'] = ''
                 if 'rating' in author_details and author_details['rating']:
-                    instance['rating'] = str(author_details['rating'] / 2) + '/5'
+                    # instance['rating'] = str(author_details['rating'] / 2) + '/5'
+                    instance['rating'] = str(float('%.1f' % (author_details['rating'] / 2))) + '/5'
                 else:
                     instance['rating'] = ''
             else:
