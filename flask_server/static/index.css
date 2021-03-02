@@ -66,9 +66,27 @@ h3 {
   min-height:100%;
   /*设置padding-bottom值大于等于footer的height值，以保证main的内容能够全部显示出来而不被footer遮盖；*/  
   padding-bottom: 30px;  
-  /* margin-bottom: 50px; */
   box-sizing: border-box;
+  /* background-color: aquamarine; */
 }
+#left-half {
+  background-color:darkolivegreen;
+  float: left;
+  /* position: absolute; */
+  /* left: 0px; */
+  width: 25px;
+  height: 90%;
+}
+#right-half {
+  border-left: 0.5px solid whitesmoke;
+  /* background-color: pink; */
+  /* position: relative; */
+  /* right: 0px; */
+  width:75%;
+  height:90%;
+  margin-right: 230px;
+}
+
 header{
   width: 100%;
   font-size: 20px;
