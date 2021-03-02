@@ -6,8 +6,8 @@ html,body{
   height: 100%;
 }
 #container{
-  /* overflow:hidden; */
-  /* border-left: 0.5px solid #000000; */
+  overflow:visible;
+  border-left: 0.5px solid #000000;
   margin-left: 230px;
 
   display: flex;
@@ -21,9 +21,10 @@ header{
   /* position: absolute; */
 }
 .main{
-  /* height: 800px; */
+  min-height: 400px;
   background: orange;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
+  /* display: flex; */
 }
 footer{
   background: #333;
