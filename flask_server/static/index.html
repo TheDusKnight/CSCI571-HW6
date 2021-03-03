@@ -18,33 +18,25 @@
   </div>
 
   <div class="navBar">
-    <button onclick="toggleHome()">Home ⟶</button>
-    <br>
-    <button onclick="toggleSearch()">Search ⟶</button>
+    <a onclick="toggleHome()" style="cursor: pointer;">Home ⟶</a>
+    <hr />
+    <a onclick="toggleSearch()" style="cursor: pointer">Search ⟶</a>
   </div>
   
   <div id="container">
-    <!-- <br>
-    <div class="horizontalGradual">
-      <h3>THE MOVIE DB</h3>
-    </div> -->
 
-    <!-- <div id="left-half">
-      <p>Ok</p>
-    </div> -->
-
-    <!-- <div id="right-half"> -->
-      <section hidden class="search">
-          Search
+      <section hidden id="search">
+        Search
       </section>
-      <!-- <p style="height: 800px; background-color:blue;"></p> -->
+      <section id="home">
+        <h1>Trending Movies</h1>
+      </section>
       <div class="right-text">
         <footer>FOOTER</footer>
       </div>
-    <!-- </div> -->
-
-  </div>
-  
+      
+    </div>
+    
 
 </body>
 
