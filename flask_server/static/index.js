@@ -77,12 +77,17 @@ function showSlides() {
 
   // if (slides) {alert(slides[i])}
   // alert(slides[0].innerHTML)
-  for (i = 0; i < slides.length; i++) {
+  for (i = 0; i < 5; i++) {
     slides[i].style.display = "none";  
   }
+  for (i = 5; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
   slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1} // 恢复index
+  // if (slideIndex > slides.length) {slideIndex = 1} // 恢复index
+  if (slideIndex > 5) {slideIndex = 1} // 恢复index
   slides[slideIndex-1].style.display = "block";
+  slides[slideIndex+5-1].style.display = "block";
   setTimeout(showSlides, 2000); // Change image every 3 seconds
 }
 
