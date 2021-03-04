@@ -1,0 +1,23 @@
+#results{
+  display: none;
+}
+/* https://www.daqianduan.com/6179.html */
+/* https://blog.csdn.net/zgh0711/article/details/78270555 */
+/* https://www.zoo.team/article/text-overflow */
+.text-overflow{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 290px;
+  border-left: 6px solid rgb(172, 37, 28);
+}
+.result-img{
+  margin-left: 5px;
+  margin-top: 7px;
+}

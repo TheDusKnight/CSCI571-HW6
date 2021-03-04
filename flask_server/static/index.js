@@ -1,15 +1,20 @@
 'use strict';
-console.log('window inner sizes: ' + window.innerWidth + ' x ' + window.innerHeight)
+// console.log('window inner sizes: ' + window.innerWidth + ' x ' + window.innerHeight)
+console.log("index.js triggered")
+var serverUrl = "http://127.0.0.1:5000"
 
 function toggleSearch() {
   document.getElementById('home').style.display = "none"
-  document.getElementById("search").style.display="block";
+  document.getElementById("search").style.display ="block";
   console.log("show search")
 }
 
 function toggleHome() {
   document.getElementById('search').style.display = "none"
+  var results = document.getElementById('results')
+  if (results) {results.style.display = "none"}
   document.getElementById('home').style.display = "block"
+  
 }
 
 function sleep(ms) {
@@ -23,21 +28,20 @@ function sleep(ms) {
 async function fetchR(inputLnk) {
   const response = await fetch(inputLnk, {
     method: 'GET',
-    // TODO: 在server和browser添加cor功能
-    // mode:'cors',
+    mode:'cors',
     responseType: 'json',
   });
   let result = await response.text()
-  console.log(result)
+  // console.log(result)
   return result
 }
 
 var slideIndex = 0
-window.onload = fetchR("http://localhost:5000/api/movies").then(result=>display_trending(result, "movie"))
-window.onload = fetchR("http://localhost:5000/api/tvs").then(result=>display_trending(result, "tv"))
+window.onload = fetchR(serverUrl + "/api/movies").then(result=>displayTrending(result, "movie"))
+window.onload = fetchR(serverUrl +"/api/tvs").then(result=>displayTrending(result, "tv"))
 showSlides()
 
-function display_trending(result, type) {
+function displayTrending(result, type) {
   const obj = JSON.parse(result)
   const res = obj.results
   if (type === "movie") {

@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Movie DB</title>
   <link rel="stylesheet" type="text/css" href="static/index.css" />
+  <link rel="stylesheet" type="text/css" href="static/search.css" />
   <link rel="icon" type="image/png" href="static/img/favicon.ico"/>
-  <!-- <script type="text/javascript" src="static/index.js"></script> -->
 </head>
 
 <body>
@@ -25,10 +25,27 @@
   </div>
   
   <div id="container">
-
       <section hidden id="search">
-        Search
+        <h4 style="position: absolute; left: 250px; top: 15px;">Search</h1>
+        <form id="search-form" style="position: absolute; left: 200px; top: 50px;">
+          <label>Keyword<sup class="red-dot">&#8226;</sup></label>
+          <input type="text" id="keyword" class="radius" style="width: 280px; margin-left: 10px; margin-bottom: 12px;"><br>
+          <label>Category<sup class="red-dot">&#8226;</sup></label>
+          <select id="category" name="category" class="radius" style="margin-left: 10px; margin-bottom: 12px;">
+              <option value=""></option>
+              <option value="movies">Movies</option>
+              <option value="tvs">TV Shows</option>
+              <option value="multi">Movies and TV Shows</option>
+          </select><br>
+          <input type="button" onclick="showResults()" value="Search">
+          <input type="button" onclick="clearText()" value="Clear">
+          <!-- <input type="text" class="radius" style="width: 250px; margin-left: 10px;"><br> -->
+        </form>
       </section>
+      <section id="results">
+        <p>Showing results...</p>
+      </section>
+
       <section id="home">
         <div class="slideshow-container">
           <p style="margin-left: 335px; margin-top: 15px;">Trending Movies</p>
@@ -82,11 +99,10 @@
       <div class="right-text">
         <footer>FOOTER</footer>
       </div>
-      
     </div>
-    
 
 </body>
 <script type="text/javascript" src="static/index.js"></script>
+<script type="text/javascript" src="static/search.js"></script>
 
 </html>

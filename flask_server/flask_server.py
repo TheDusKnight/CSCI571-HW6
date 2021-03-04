@@ -1,12 +1,13 @@
 import requests
 from datetime import datetime
 from dateutil.parser import parse
-# from flask_cors import CORS
+from flask_cors import CORS
 from urllib.parse import urljoin, quote
 from markupsafe import escape
 from flask import Flask, request, url_for, current_app
 
 app = Flask(__name__)
+CORS(app)
 
 movie_genre = {}
 tv_genre = {}

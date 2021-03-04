@@ -59,8 +59,6 @@ status code 0 xmlHttpRequest @257
 
 if you are sending xhr object syncly then set it to false and do it asyncly. Simply setting the parameter from true to false is what I did to get rid of the status code 0 and retrieve data successfully. Hope it helps.
 
----
-
 
 
 

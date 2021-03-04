@@ -5,13 +5,11 @@
 html,body{
   height: 100%;
   padding-top: 0px;
-  padding-right: 0px;
-  /* overflow-x: hidden; */
-}
-
-body {
+  padding-right: 11px;
   color: white;
   background: black;
+  /* overflow-x: hidden; */
+  /* margin-bottom: 10px; */
 }
 
 #home {
@@ -91,27 +89,13 @@ h3 {
 .horizontalGradual {
   /* padding-top: 10px; */
   /* margin-top: 5px; */
-  margin-right: 10px;
+  /* margin-right: 10px; */
   background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0), rgba(255,0,0,0), rgba(255,0,0,0), rgba(173,37,30,1));
 }
 
-/* #footer {
-  height: 40px;
-  line-height: 40px;
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-  background: #333;
-  color: #fff;
-  font-family: Arial;
-  font-size: 12px;
-  letter-spacing: 1px;
-} */
-
 #container{
+  /* left: 230px; */
   margin-left: 230px;
-  /* margin-right: 230px; */
   padding-top: 5px;
   padding-left: 10px;
   padding-right: 180px;
@@ -166,12 +150,37 @@ header{
 }
 #search{
   width: 100%;
-  height: 400px;
-  /* margin-right: 300000px; */
-  /* padding-right: 300px; */
+  height: 180px;
+  /* TODO:使search bg不跟随响应式? */
+  width: 750px;
+  /* TODO: position? */
+  position: relative;
   /* background: orange; */
-  background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(255,0,0,0), rgba(173,37,30,1));
+  background-image: linear-gradient(to top, rgba(255,0,0,0),rgba(173,37,30,1));
 }
+.red-dot{
+  font-size: 10px;
+  color: red;
+  vertical-align:super;
+}
+/* #red-dot{
+  color: red;
+  display: inline-block;
+  vertical-align: super;
+} */
+#search-text{
+  position: absolute;
+  left: 200px;
+  top: 50px;
+}
+label{
+  font-size: 11px;
+}
+.radius{
+  border-radius:3px;
+  border:1px solid #DBDBDB;
+}
+/* optgroup { font-size:900px; } */
 footer{
   /* overflow-x: hidden; */
   width: 100%;
@@ -179,15 +188,18 @@ footer{
   position:absolute;
   bottom:0px;
   left:0px;
+  /* right: 30px; */
   /* margin-left: 10000px; */
-  margin-right: 1000000000px;
+  /* margin-right: 0px; */
   /* margin-bottom: 10px; */
   padding-bottom: 10px;
   /* padding-right: 1000px; */
-  /* padding-left: 1000px; */
+  /* padding-left: -1000px; */
   /* background: rgb(88, 19, 14); */
-  background: rgb(90, 12, 8);
+  background: rgb(88, 19, 14);
 }
 div.right-text {
   text-align: right;
+  /* padding-left: 3000000px; */
+  /* margin-right: 300000px; */
 }
