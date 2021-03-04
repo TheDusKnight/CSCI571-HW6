@@ -108,7 +108,7 @@ def get_trending_tvs():
 
 @app.route('/api/search/movie/<search_query>')
 def search_movie(search_query):
-    """Return movie search results
+    """Return movie search results at most 10
 
     Args:
         search_query (string): search query escape space
@@ -130,7 +130,7 @@ def search_movie(search_query):
         + quote(search_query) + "&page=1&include_adult=false")
     
     response = {'results': []}
-    for data in raw.json()['results']:
+    for data in raw.json()['results'][:10]:
         instance = parse_movie_data(data)
 
         response['results'].append(instance)
@@ -139,7 +139,7 @@ def search_movie(search_query):
 
 @app.route('/api/search/tv/<search_query>')
 def search_tv(search_query):
-    """Return tv search results
+    """Return tv search results at most 10
 
     Args:
         search_query (string): search query escape space
@@ -160,7 +160,7 @@ def search_tv(search_query):
         + quote(search_query) + "&page=1&include_adult=false")
     
     response = {'results': []}
-    for data in raw.json()['results']:
+    for data in raw.json()['results'][:10]:
         instance = parse_tv_data(data)
 
         response['results'].append(instance)
@@ -169,7 +169,7 @@ def search_tv(search_query):
 
 @app.route('/api/search/multi/<search_query>')
 def search_multi(search_query):
-    """Return movie & tv search results but not include person such as Tom Cruise
+    """Return movie & tv search results at most 10 but not include person such as Tom Cruise
 
     Args:
         search_query (string): search query escape space
@@ -179,7 +179,7 @@ def search_multi(search_query):
         str: name or title
         str: overview
         str: poster_path (be careful static path)
-        str: poster_path or first_air_date
+        str: release_date or first_air_date
         str: vote_average
         str: vote_count
         list of str: genres
@@ -190,7 +190,7 @@ def search_multi(search_query):
         + quote(search_query) + "&page=1&include_adult=false")
     
     response = {'results': []}
-    for data in raw.json()['results']:
+    for data in raw.json()['results'][:10]:
         if 'media_type' in data and data['media_type']:
             if data['media_type'] == 'movie':
                 instance = parse_movie_data(data)

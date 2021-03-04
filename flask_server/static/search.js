@@ -34,32 +34,37 @@ async function fetchR(inputLnk) {
 function showResults() {
   var keyword = document.getElementById("keyword")
   var category = document.getElementById("category")
-  var results = document.getElementById("results")
+  // var results = document.getElementById("results")
   if (isnull(keyword.value) === true || isnull(category.value) === true) {
     alert("Please enter valid values.")
   } else {
     // fetch movie results by key word
     if (category.value === "movies") {
       window.onload = fetchR(serverUrl + "/api/search/movie/" + keyword.value).then(json=>showMovies(json))
-    }
-    results.style.display = "block" // display show results
-    for (var i = 0; i < 3; i++) {
-      // results.innerHTML += "<span>child</span><br>"
-      var card = document.createElement('DIV')
-      card.className = "card"
-      results.appendChild(card)
-      var img = document.createElement('IMG');
-      img.className = "result-img"
-      img.src = 'static/img/poster-placeholder.png'
-      card.appendChild(img)
-    }
-
-    // var btn = document.createElement("BUTTON")   // Create a <button> element
-    // btn.innerHTML = "CLICK ME"                   // Insert text
-    // results.appendChild(btn)          // Append <button> to <body>
+    } else if (category.value === "tvs") {
+      window.onload = fetchR(serverUrl + "/api/search/tv/" + keyword.value).then(json=>showTvs(json))
+    } else if (category.value === "multi") {
+      window.onload = fetchR(serverUrl + "/api/search/multi/" + keyword.value).then(json=>showMulti(json))
+    } else { alert("category incorrect!") } // TODO: change alert to console.log
   }
 }
 
 function showMovies(json) {
-  
+  var results = document.getElementById("results")
+  results.innerHTML = "<p>Showing results...</p>" // 清除之前内容，显示新的内容
+  const res = JSON.parse(json).results
+  // alert(res[0].poster_path)
+  // alert(res.length)
+  results.style.display = "block" // display show results
+  for (var i = 0; i < res.length; i++) {
+    // results.innerHTML += "<span>child</span><br>"
+    var card = document.createElement('DIV')
+    card.className = "card"
+    results.appendChild(card)
+    var img = document.createElement('IMG');
+    img.className = "result-img"
+    // img.src = 'static/img/poster-placeholder.png'
+    img.src = res[i].poster_path
+    card.appendChild(img)
+  }
 }
