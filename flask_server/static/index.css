@@ -51,23 +51,29 @@ body {
   padding-left: 325px;
   position: absolute;
   bottom: 4px;
-  width: 150%;
+  width: 80%;
   /* text-align: center; */
   background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: white; */
 }
-
-/* .verticalLine {
-  border-left: 4px solid yellow;
+.tvCaption {
+  font-size: 16px;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  padding-left: 325px;
   position: absolute;
-  margin-left: 230px;
-  margin-bottom: 50px;
-} */
+  bottom: 4px;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: white; */
+}
 
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
   position: relative;
   margin: auto;
+  margin-bottom: 100px;
 }
 
 .navBar {
@@ -86,16 +92,13 @@ h3 {
   /* padding-top: 10px; */
   /* margin-top: 5px; */
   margin-right: 10px;
-  /* background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0), rgba(255,0,0,0), rgba(255,0,0,0), rgba(173,37,30,1)); */
   background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0), rgba(255,0,0,0), rgba(255,0,0,0), rgba(173,37,30,1));
 }
 
-#footer {
+/* #footer {
   height: 40px;
   line-height: 40px;
   position: absolute;
-  /* left: 10px; */
-  /* right: 100px; */
   bottom: 10px;
   width: 100%;
   text-align: center;
@@ -104,7 +107,7 @@ h3 {
   font-family: Arial;
   font-size: 12px;
   letter-spacing: 1px;
-}
+} */
 
 #container{
   margin-left: 230px;
@@ -115,8 +118,9 @@ h3 {
   border-left: 0.5px solid whitesmoke;
   /*保证footer是相对于container位置绝对定位*/
   position:relative;  
-  /* position:absolute; */
-  width:80%;
+  /* width:80%; */
+  /* TODO: 看看需不需要把width改回来 */
+  max-width:100%;
   /* 最小高度保证屏幕在搜索栏时不需要滚动 */
   min-height:90%;
   /*设置padding-bottom值大于等于footer的height值，以保证main的内容能够全部显示出来而不被footer遮盖；*/  
@@ -175,11 +179,14 @@ footer{
   position:absolute;
   bottom:0px;
   left:0px;
-  /* margin-left: 10px; */
-  margin-right: 10px;
+  /* margin-left: 10000px; */
+  margin-right: 1000000000px;
   /* margin-bottom: 10px; */
-  /* padding-right: 10px; */
-  background: rgb(88, 19, 14);
+  padding-bottom: 10px;
+  /* padding-right: 1000px; */
+  /* padding-left: 1000px; */
+  /* background: rgb(88, 19, 14); */
+  background: rgb(90, 12, 8);
 }
 div.right-text {
   text-align: right;
