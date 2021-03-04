@@ -12,7 +12,7 @@ function isnull(val) {
   if (str == '' || str == undefined || str == null) {//输入框中输入空格也为空
       console.log('空');
       console.log("str.length===" + str.length);
-      return false; // TODO: change to true
+      return true; // TODO: change to true
   } else {
       console.log('非空');//输入框中输入null、undefined也为非空
       console.log("str.length===" + str.length);
@@ -27,7 +27,7 @@ async function fetchR(inputLnk) {
     responseType: 'json',
   });
   let result = await response.text()
-  console.log(result) // display fetch result log
+  // console.log(result) // display fetch result log
   return result
 }
 
@@ -51,20 +51,26 @@ function showResults() {
 
 function showMovies(json) {
   var results = document.getElementById("results")
-  results.innerHTML = "<p>Showing results...</p>" // 清除之前内容，显示新的内容
   const res = JSON.parse(json).results
-  // alert(res[0].poster_path)
-  // alert(res.length)
-  results.style.display = "block" // display show results
-  for (var i = 0; i < res.length; i++) {
-    // results.innerHTML += "<span>child</span><br>"
-    var card = document.createElement('DIV')
-    card.className = "card"
-    results.appendChild(card)
-    var img = document.createElement('IMG');
-    img.className = "result-img"
-    // img.src = 'static/img/poster-placeholder.png'
-    img.src = res[i].poster_path
-    card.appendChild(img)
+  if (res.length < 1 || res == undefined) {
+    results.innerHTML = "<p id='no-result'>No results found</p>"
+    // results.innerHTML = "<p>Showing results...</p>"
+    alert(results.innerHTML)
+  } else {
+    results.innerHTML = "<p>Showing results...</p>" // 清除之前内容，显示新的内容
+    // alert(res[0].poster_path)
+    // alert(res.length)
+    // results.style.display = "block" // display show results?
+    for (var i = 0; i < res.length; i++) {
+      // results.innerHTML += "<span>child</span><br>"
+      var card = document.createElement('DIV')
+      card.className = "card"
+      results.appendChild(card)
+      var img = document.createElement('IMG');
+      img.className = "result-img"
+      // img.src = 'static/img/poster-placeholder.png'
+      img.src = res[i].poster_path
+      card.appendChild(img)
+    }
   }
 }
