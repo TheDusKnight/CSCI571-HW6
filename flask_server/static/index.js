@@ -46,7 +46,7 @@ function display_trending(result, id, type) {
   if (type === "movie") {
     // document.getElementById("img_test").src = "https://image.tmdb.org/t/p/w780/srYya1ZlI97Au4jUYAktDe3avyA.jpg"
     // var slides = document.getElementsByClassName("slides")
-    var captions = document.getElementsByClassName("caption")
+    var captions = document.getElementsByClassName("movieCaption")
     var slides = document.getElementsByClassName("movieSlide")
     var res = obj.results
     
@@ -83,7 +83,7 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slides.length) {slideIndex = 1} // 恢复index
   slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 3000); // Change image every 3 seconds
+  setTimeout(showSlides, 2000); // Change image every 3 seconds
 }
 
 // function display_trending_2(result, id) {
