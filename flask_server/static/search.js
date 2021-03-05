@@ -98,17 +98,58 @@ function showAll(json) {
       cardText.appendChild(txt)
 
       var showMore = document.createElement("BUTTON")
+      showMore.className = "detail"
       showMore.innerText = "Show more"
+      showMore.index = res[i].id // 将id信息加入button index
+      cardText.appendChild(showMore)
 
       // showMore.addEventListener('click', function() {
       //   popUp()
       // })
-
-      cardText.appendChild(showMore)
+      showMore.onclick = function() {
+        alert(this.index)
+      }
     }
+    // 所有cards显示完之后
+
+    // 方案一
+    // showMore.addEventListener('click', function() {
+    //   popUp()
+    // })
+
+    // 方案二
+    // alert("card finish")
+    // window.onload = function() {
+    //   alert("what????")
+    //   var btns = document.getElementsByClassName("detail")
+    //   for (var i = 0; i < btns.length; i++) {
+    //     var btn = btns[i]
+    //     btn.onclick = function() {
+    //       alert(btn.index)
+    //     }
+    //   }
+    // }
+
   }
 }
 
-// function popUp(ID) {
-//   var currId = document.getElementById()
+// function popUp() {
+//   alert("inside popUp")
+//   var btns = document.getElementsByTagName("BUTTON")
+//   for (var i = 0; i < btns.length; i++) {
+//     var btn = btns[i]
+//     alert(btn.index)
+//   }
+// }
+
+// 模版
+// window.onload = function() {
+//   // alert("onload")
+//   var btns = document.getElementsByTagName("BUTTON")
+//   for (var i = 0; i < btns.length; i++) {
+//     var btn = btns[i]
+//     btn.onclick = function() {
+//       alert(btn.index)
+//     }
+//   }
 // }
