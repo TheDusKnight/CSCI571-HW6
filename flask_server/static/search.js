@@ -63,14 +63,29 @@ function showAll(json) {
       var card = document.createElement('DIV')
       card.className = "card"
       results.appendChild(card)
+
       var img = document.createElement('IMG');
       img.className = "result-img"
       // img.src = 'static/img/poster-placeholder.png'
       img.src = res[i].poster_path
       card.appendChild(img)
-      var title = document.createElement("H1")
-      title.className = "car-title"
+
+      var cardText = document.createElement("DIV")
+      cardText.className = "card-text"
+      // result.appendChild(cardText)
+      card.appendChild(cardText)
+      
+      var title = document.createElement("H4")
+      title.className = "card-title"
+      title.innerText = (res[i].title || res[i].name)
+      cardText.appendChild(title)
       // if (res[i].title) alert("Movie")
+
+      cardText.appendChild(document.createElement("BR"))
+
+      var yearType = document.createElement("P")
+      yearType.innerText = (res[i].release_date || res[i].first_air_date) + " | " + res[i].genres.join(", ")
+      cardText.appendChild(yearType)
     }
   }
 }
