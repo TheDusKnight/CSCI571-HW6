@@ -9,7 +9,7 @@
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
   <link rel="stylesheet" type="text/css" href="static/index.css" />
   <link rel="stylesheet" type="text/css" href="static/search.css" />
-  <link rel="icon" type="image/png" href="static/img/favicon.ico"/>
+  <link rel="icon" type="image/png" href="static/img/favicon.ico" />
 </head>
 
 <body>
@@ -24,10 +24,10 @@
     <hr />
     <a onclick="toggleSearch()" style="cursor: pointer">Search ⟶</a>
   </div>
-  
+
   <div id="container">
-      <section hidden id="search">
-        <h4 style="position: absolute; left: 375px; top: 15px;">Search</h1>
+    <section hidden id="search">
+      <h4 style="position: absolute; left: 375px; top: 15px;">Search</h1>
         <form id="search-form" style="position: absolute; left: 200px; top: 50px;">
           <label>Keyword<sup class="red-dot">&#8226;</sup></label>
           <input type="text" id="keyword" class="radius" style="width: 280px; margin-left: 10px; margin-bottom: 12px; 
@@ -35,73 +35,144 @@
           <label>Category<sup class="red-dot">&#8226;</sup></label>
           <select id="category" name="category" class="radius" style="margin-left: 10px; margin-bottom: 12px; 
           font-family: 'Roboto', sans-serif; font-size: 10px;">
-              <option value=""></option>
-              <option value="movies">Movies</option>
-              <option value="tvs">TV Shows</option>
-              <option value="multi">Movies and TV Shows</option>
+            <option value=""></option>
+            <option value="movies">Movies</option>
+            <option value="tvs">TV Shows</option>
+            <option value="multi">Movies and TV Shows</option>
           </select><br>
           <input class="search-button" type="button" onclick="showResults()" value="Search">
           <input class="search-button" type="button" onclick="clearText()" value="Clear">
           <!-- <input type="text" class="radius" style="width: 250px; margin-left: 10px;"><br> -->
         </form>
-      </section>
-      <section id="results">
-        
-      </section>
+    </section>
+    <section id="results">
 
-      <section id="home">
-        <div class="slideshow-container">
-          <p style="margin-left: 335px; margin-top: 15px;">Trending Movies</p>
-          <div class="slides fade">
-            <img class="movieSlide" src="static/img/movie-placeholder.jpg">
-            <div class="movieCaption">Caption 1</div>
-          </div>
-          <div class="slides fade">
-            <img class="movieSlide" src="static/img/movie-placeholder.jpg">
-            <div class="movieCaption">Caption 2</div>
-          </div>
-          <div class="slides fade">
-            <img class="movieSlide" src="static/img/movie-placeholder.jpg">
-            <div class="movieCaption">Caption 3</div>
-          </div>
-          <div class="slides fade">
-            <img class="movieSlide" src="static/img/movie-placeholder.jpg">
-            <div class="movieCaption">Caption 4</div>
-          </div>
-          <div class="slides fade">
-            <img class="movieSlide" src="static/img/movie-placeholder.jpg">
-            <div class="movieCaption">Caption 5</div>
-          </div>
-        </div>
+    </section>
 
-        <div class="slideshow-container">
-          <p style="margin-left: 310px;">TV shows On-Air Today</p>
-          <div class="slides fade">
-            <img class="tvSlide" src="static/img/movie-placeholder.jpg">
-            <div class="tvCaption">Caption 1</div>
-          </div>
-          <div class="slides fade">
-            <img class="tvSlide" src="static/img/movie-placeholder.jpg">
-            <div class="tvCaption">Caption 2</div>
-          </div>
-          <div class="slides fade">
-            <img class="tvSlide" src="static/img/movie-placeholder.jpg">
-            <div class="tvCaption">Caption 3</div>
-          </div>
-          <div class="slides fade">
-            <img class="tvSlide" src="static/img/movie-placeholder.jpg">
-            <div class="tvCaption">Caption 4</div>
-          </div>
-          <div class="slides fade">
-            <img class="tvSlide" src="static/img/movie-placeholder.jpg">
-            <div class="tvCaption">Caption 5</div>
-          </div>
+    <section id="home">
+      <div class="slideshow-container">
+        <p style="margin-left: 335px; margin-top: 15px;">Trending Movies</p>
+        <div class="slides fade">
+          <img class="movieSlide" src="static/img/movie-placeholder.jpg">
+          <div class="movieCaption">Caption 1</div>
         </div>
-        <!-- <p style="height: 800px; background-color: blueviolet;"></p> -->
-      </section>
-      <div class="right-text">
-        <footer>Designed and developed by Xirui Zhong<br>Powered by TMDB</footer>
+        <div class="slides fade">
+          <img class="movieSlide" src="static/img/movie-placeholder.jpg">
+          <div class="movieCaption">Caption 2</div>
+        </div>
+        <div class="slides fade">
+          <img class="movieSlide" src="static/img/movie-placeholder.jpg">
+          <div class="movieCaption">Caption 3</div>
+        </div>
+        <div class="slides fade">
+          <img class="movieSlide" src="static/img/movie-placeholder.jpg">
+          <div class="movieCaption">Caption 4</div>
+        </div>
+        <div class="slides fade">
+          <img class="movieSlide" src="static/img/movie-placeholder.jpg">
+          <div class="movieCaption">Caption 5</div>
+        </div>
       </div>
+
+      <div class="slideshow-container">
+        <p style="margin-left: 310px;">TV shows On-Air Today</p>
+        <div class="slides fade">
+          <img class="tvSlide" src="static/img/movie-placeholder.jpg">
+          <div class="tvCaption">Caption 1</div>
+        </div>
+        <div class="slides fade">
+          <img class="tvSlide" src="static/img/movie-placeholder.jpg">
+          <div class="tvCaption">Caption 2</div>
+        </div>
+        <div class="slides fade">
+          <img class="tvSlide" src="static/img/movie-placeholder.jpg">
+          <div class="tvCaption">Caption 3</div>
+        </div>
+        <div class="slides fade">
+          <img class="tvSlide" src="static/img/movie-placeholder.jpg">
+          <div class="tvCaption">Caption 4</div>
+        </div>
+        <div class="slides fade">
+          <img class="tvSlide" src="static/img/movie-placeholder.jpg">
+          <div class="tvCaption">Caption 5</div>
+        </div>
+      </div>
+      <!-- <p style="height: 800px; background-color: blueviolet;"></p> -->
+    </section>
+    <div class="right-text">
+      <footer>Designed and developed by Xirui Zhong<br>Powered by TMDB</footer>
+    </div>
+  </div>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="inner-img" src="static/img/movie-placeholder.jpg">
+      <h2 id="inner-title"></h2>
+      <p id="inner-yeartype"></p>
+      <p id="inner-vote"></p>
+      <p id="inner-overview"></p>
+      <p id="language"></p>
+      
+      <h1>Cast</h1>
+      <div class="row">
+        <div class="column">
+          <img class="person-img" src="static/img/person-placeholder.png">
+          <p class="bold-name"></p>
+          <p>AS</p>
+          <p class="thin-name"></p>
+        </div>
+        <div class="column">
+          <img class="person-img" src="static/img/person-placeholder.png">
+          <p class="bold-name"></p>
+          <p>AS</p>
+          <p class="thin-name"></p>
+        </div>
+        <div class="column">
+          <img class="person-img" src="static/img/person-placeholder.png">
+          <p class="bold-name"></p>
+          <p>AS</p>
+          <p class="thin-name"></p>
+        </div>
+        <div class="column">
+          <img class="person-img" src="static/img/person-placeholder.png">
+          <p class="bold-name"></p>
+          <p>AS</p>
+          <p class="thin-name"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <img class="person-img" src="static/img/person-placeholder.png">
+          <p class="bold-name"></p>
+          <p>AS</p>
+          <p class="thin-name"></p>
+        </div>
+        <div class="column">
+          <img class="person-img" src="static/img/person-placeholder.png">
+          <p class="bold-name"></p>
+          <p>AS</p>
+          <p class="thin-name"></p>
+        </div>
+        <div class="column">
+          <img class="person-img" src="static/img/person-placeholder.png">
+          <p class="bold-name"></p>
+          <p>AS</p>
+          <p class="thin-name"></p>
+        </div>
+        <div class="column">
+          <img class="person-img" src="static/img/person-placeholder.png">
+          <p class="bold-name"></p>
+          <p>AS</p>
+          <p class="thin-name"></p>
+        </div>
+      </div>
+      <h1>Reviews</h1>
+
+      <!-- <p style="height: 400px;"></p> -->
     </div>
 
 </body>

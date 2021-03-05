@@ -14,6 +14,7 @@ tv_genre = {}
 
 # TODO: 可能前端handle 500 Internal Server Error when send wrong query string
 # TODO: 注意average vote保留最多两位小数，如果刚好是整数怎么办？
+# TODO: 将所有空结果改成'N/A'
 @app.before_first_request
 def extract_genre():
     raw_movie_genre = requests.get("https://api.themoviedb.org/3/genre/movie/list?api_key=788c93d7dc54e946665b5958c8ff0a3a&language=en-US")
@@ -252,11 +253,11 @@ def movie_detail(movie_id):
         if 'vote_average' in data and data['vote_average']:
             response['vote_average'] = str(data['vote_average'] / 2) + '/5'
         else:
-            response['vote_average'] = ''
+            response['vote_average'] = '0.0/5'
         if 'vote_count' in data and data['vote_count']:
             response['vote_count'] = str(data['vote_count'])
         else:
-            response['vote_count'] = ''
+            response['vote_count'] = '0'
         if 'poster_path' in data and data['poster_path']:
             response['poster_path'] = 'https://image.tmdb.org/t/p/w185' + data['poster_path']
         else:
@@ -366,7 +367,7 @@ def movie_review(movie_id):
 
 @app.route('/api/get/tv/detail/<tv_id>')
 def tv_detail(tv_id):
-    """Return tv details
+    """Return tv details ignore number of seasons, run time, episode_run_time
 
     Args:
         tv_id (int): id of the detail tv
@@ -378,7 +379,7 @@ def tv_detail(tv_id):
         list of str: genres
         int: id
         str: name
-        int: number_of_seasons
+        int: number_of_seasons d
         str: overview
         str: poster_path
         list of str: spoken_languages
@@ -421,11 +422,11 @@ def tv_detail(tv_id):
         if 'vote_average' in data and data['vote_average']:
             response['vote_average'] = str(data['vote_average'] / 2) + '/5'
         else:
-            response['vote_average'] = ''
+            response['vote_average'] = '0.0/5'
         if 'vote_count' in data and data['vote_count']:
             response['vote_count'] = str(data['vote_count'])
         else:
-            response['vote_count'] = ''
+            response['vote_count'] = '0'
         if 'poster_path' in data and data['poster_path']:
             response['poster_path'] = 'https://image.tmdb.org/t/p/w185' + data['poster_path']
         else:
