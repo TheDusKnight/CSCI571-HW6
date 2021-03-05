@@ -184,6 +184,7 @@ header{
   top: 50px;
 }
 .search-button{
+  cursor: pointer;
   position: relative;
   left: 100px;
   margin-left: 30px;

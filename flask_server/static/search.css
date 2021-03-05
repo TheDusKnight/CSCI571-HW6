@@ -7,6 +7,9 @@
 /* https://blog.csdn.net/zgh0711/article/details/78270555 */
 /* https://www.zoo.team/article/text-overflow */
 .text-overflow{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 520px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -22,22 +25,41 @@
   height: 290px;
   border-left: 6px solid rgb(172, 37, 28);
   /* background-color: bisque; */
-  background: rgba(240, 236, 236, 0.6);
+  /* background: rgba(240, 236, 236, 0.6); */
 }
 .card-text{
   width: 100%;
   position: absolute;
   left: 220px;
   /* margin-top: 30px; */
-  top: 17px;
+  top: 30px;
 }
-.card-text h4{
-  font-size: 15px;
+.card-text h2{
+  font-size: 16px;
   font-weight: 900;
 }
 .card-text p{
-  font-size: 12px;
+  font-size: 10px;
 }
+.card-text span{
+  color: brown;
+}
+.card-text button{
+  cursor: pointer;
+  /* position: relative; */
+  /* left: 100px; */
+  /* margin-left: 30px; */
+  /* font-size: 10px; */
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: white;
+  background-color: rgb(169, 37, 28);
+  border-radius: 3px;
+  border:1px solid rgb(169, 37, 28);
+}
+
 .result-img{
   margin-left: 5px;
   margin-top: 7px;

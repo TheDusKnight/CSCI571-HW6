@@ -75,7 +75,7 @@ function showAll(json) {
       // result.appendChild(cardText)
       card.appendChild(cardText)
       
-      var title = document.createElement("H4")
+      var title = document.createElement("H2")
       title.className = "card-title"
       title.innerText = (res[i].title || res[i].name)
       cardText.appendChild(title)
@@ -83,12 +83,23 @@ function showAll(json) {
 
       cardText.appendChild(document.createElement("BR"))
 
-      var yearType = document.createElement("P")
+      var yearType = document.createElement("p")
       yearType.innerText = (res[i].release_date || res[i].first_air_date) + " | " + res[i].genres.join(", ")
       cardText.appendChild(yearType)
 
-      // var vote = document.createElement("P")
-      // vote.innerText = 
+      var vote = document.createElement("P")
+      vote.innerHTML = "<span>" + "\u2B51" + " " + res[i].vote_average + "</span>" + " " + res[i].vote_count 
+      + " votes"
+      cardText.appendChild(vote)
+
+      var txt = document.createElement("p")
+      txt.className = "text-overflow"
+      txt.innerText = res[i].overview
+      cardText.appendChild(txt)
+
+      var showMore = document.createElement("BUTTON")
+      showMore.innerText = "Show more"
+      cardText.appendChild(showMore)
     }
   }
 }
