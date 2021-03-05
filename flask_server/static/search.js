@@ -53,9 +53,9 @@ function showMovies(json) {
   var results = document.getElementById("results")
   const res = JSON.parse(json).results
   if (res.length < 1 || res == undefined) {
-    results.innerHTML = "<p id='no-result'>No results found</p>"
+    results.innerHTML = "<p id='no-result'>No results found.</p>"
     // results.innerHTML = "<p>Showing results...</p>"
-    alert(results.innerHTML)
+    // alert(results.innerHTML)
   } else {
     results.innerHTML = "<p>Showing results...</p>" // 清除之前内容，显示新的内容
     // alert(res[0].poster_path)

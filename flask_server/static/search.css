@@ -21,3 +21,9 @@
   margin-left: 5px;
   margin-top: 7px;
 }
+#no-result{
+  font-size: 10px;
+  top: 55px;
+  left: 350px;
+  position: relative;
+}
