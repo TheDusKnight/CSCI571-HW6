@@ -11,8 +11,11 @@ function toggleSearch() {
 
 function toggleHome() {
   document.getElementById('search').style.display = "none"
-  var results = document.getElementById('results')
-  if (results) {results.style.display = "none"}
+  // TODO: 这段有问题
+  // var results = document.getElementById('results')
+  // if (results) {results.style.display = "none"}
+  document.getElementById('results').innerHTML = "" // 把cards清理掉
+
   document.getElementById('home').style.display = "block"
   
 }

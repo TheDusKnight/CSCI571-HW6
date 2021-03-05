@@ -86,6 +86,9 @@ function showAll(json) {
       var yearType = document.createElement("P")
       yearType.innerText = (res[i].release_date || res[i].first_air_date) + " | " + res[i].genres.join(", ")
       cardText.appendChild(yearType)
+
+      // var vote = document.createElement("P")
+      // vote.innerText = 
     }
   }
 }
