@@ -40,29 +40,26 @@ function showResults() {
   } else {
     // fetch movie results by key word
     if (category.value === "movies") {
-      window.onload = fetchR(serverUrl + "/api/search/movie/" + keyword.value).then(json=>showMovies(json))
+      window.onload = fetchR(serverUrl + "/api/search/movie/" + keyword.value).then(json=>showAll(json))
     } else if (category.value === "tvs") {
-      window.onload = fetchR(serverUrl + "/api/search/tv/" + keyword.value).then(json=>showTvs(json))
+      window.onload = fetchR(serverUrl + "/api/search/tv/" + keyword.value).then(json=>showAll(json))
     } else if (category.value === "multi") {
-      window.onload = fetchR(serverUrl + "/api/search/multi/" + keyword.value).then(json=>showMulti(json))
+      window.onload = fetchR(serverUrl + "/api/search/multi/" + keyword.value).then(json=>showAll(json))
     } else { alert("category incorrect!") } // TODO: change alert to console.log
   }
 }
 
-function showMovies(json) {
+function showAll(json) {
   var results = document.getElementById("results")
   const res = JSON.parse(json).results
   if (res.length < 1 || res == undefined) {
     results.innerHTML = "<p id='no-result'>No results found.</p>"
-    // results.innerHTML = "<p>Showing results...</p>"
-    // alert(results.innerHTML)
   } else {
     results.innerHTML = "<p>Showing results...</p>" // 清除之前内容，显示新的内容
     // alert(res[0].poster_path)
     // alert(res.length)
     // results.style.display = "block" // display show results?
     for (var i = 0; i < res.length; i++) {
-      // results.innerHTML += "<span>child</span><br>"
       var card = document.createElement('DIV')
       card.className = "card"
       results.appendChild(card)
@@ -71,6 +68,9 @@ function showMovies(json) {
       // img.src = 'static/img/poster-placeholder.png'
       img.src = res[i].poster_path
       card.appendChild(img)
+      var title = document.createElement("H1")
+      title.className = "car-title"
+      // if (res[i].title) alert("Movie")
     }
   }
 }

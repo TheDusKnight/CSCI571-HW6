@@ -12,6 +12,8 @@
   text-overflow: ellipsis;
 }
 .card{
+  /* position relative is important */
+  position: relative;
   margin-top: 20px;
   margin-bottom: 20px;
   height: 290px;
