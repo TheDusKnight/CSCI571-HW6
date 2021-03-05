@@ -99,7 +99,16 @@ function showAll(json) {
 
       var showMore = document.createElement("BUTTON")
       showMore.innerText = "Show more"
+
+      // showMore.addEventListener('click', function() {
+      //   popUp()
+      // })
+
       cardText.appendChild(showMore)
     }
   }
 }
+
+// function popUp(ID) {
+//   var currId = document.getElementById()
+// }
