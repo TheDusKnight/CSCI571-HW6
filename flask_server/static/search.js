@@ -127,8 +127,8 @@ function showAll(json) {
           // 看看对不对
           window.onload = fetchR(serverUrl + "/api/get/movie/detail/" + id).then(json => showDetail(json, "detail", overview))
           window.onload = fetchR(serverUrl + "/api/get/movie/credit/" + id).then(json => showDetail(json, "credit"))
-          // window.onload = fetchR(serverUrl + "/api/get/movie/review/" + id).then(json => showDetail(json, "review"))
-        } 
+          window.onload = fetchR(serverUrl + "/api/get/movie/review/" + id).then(json => showDetail(json, "review"))
+        }
         // else if (type === "tv") {
 
         // } else {
@@ -142,7 +142,7 @@ function showAll(json) {
       // When the user clicks on <span> (x), close the modal finally
       span.onclick = function () {
         document.getElementById("no-cast").style.display = "none"
-
+        document.getElementById("no-review").style.display = "none"
         modal.style.display = "none";
       }
     }
@@ -169,33 +169,6 @@ function showDetail(json, type, ...rest) {
   }
   else if (type === "credit") {
     var tmp = res.results
-
-    // var modalContnet = document.getElementsByClassName("modal-content")[0]
-    // if (tmp.length < 1) {
-    //   var na = document.createElement("P")
-    //   na.innerText = "N/A" // 有效果但是需要每次清除
-    //   modalContnet.appendChild(na)
-    // } else {
-    //   for (var i = 0; i < tmp.length; i++) {
-    //     var row = document.createElement("DIV")
-    //     row.className = "row"
-    //     // modalContnet.appendChild(row)
-    //     modalContnet.appendChild(document.createElement("DIV"))
-    //     // alert(row)
-
-    //     var column = document.createElement("DIV")
-    //     column.className = "column"
-    //     row.appendChild(column)
-
-    //     var personImg = document.createElement("IMG")
-    //     personImg.className = "person-img"
-    //     personImg.src = tmp[i].poster_path
-    //     column.appendChild(personImg)
-    //   }
-    // }
-
-
-
     // 注入图片方式
     var cols = document.getElementsByClassName("column")
     if (tmp.length < 1) {
@@ -218,11 +191,32 @@ function showDetail(json, type, ...rest) {
     for (var j = i; j < 8; j++) {
       cols[j].style.display = "none"
     }
-
   } 
-  // else if (type === "review") {
+  else if (type === "review") {
+    var tmp = res.results
+    // 注入内容
+    if (tmp.length < 1) {
+      document.getElementById("no-review").style.display = "block"
+    }
+    var reviews = document.getElementsByClassName("review")
+    var nameDates = document.getElementsByClassName("name-date")
+    var ratings = document.getElementsByClassName("rating")
+    var comments = document.getElementsByClassName("comment")
+    for (var i = 0; i < tmp.length; i++) {
+      nameDates[i].innerHTML = tmp[i].username + " on " + tmp[i].created_at
+      // if (tmp[i].rating === "" || tmp[i].rating === "N/A") {
+        //   ratings[i].innerText = "N/A"
+        // } 
+      // TODO: server返回N/A
+      ratings[i].innerText = "\u2B51" + tmp[i].rating
+      comments[i].innerText = tmp[i].content
+      reviews[i].style.display = "block"
+    }
+    for (var j = i; j < 5; j++) {
+      reviews[j].style.display = "none"
+    }
 
-  // } else {
-  //   alert("wrong type of detail request!")
-  // }
+  } else {
+    alert("wrong type of detail request!")
+  }
 }

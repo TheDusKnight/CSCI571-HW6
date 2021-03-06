@@ -142,3 +142,10 @@
 #no-cast {
   display: none;
 }
+#no-review {
+  display: none;
+}
+
+.review {
+  display: none;
+}
