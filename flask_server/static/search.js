@@ -45,7 +45,7 @@ function showResults() {
       window.onload = fetchR(serverUrl + "/api/search/tv/" + keyword.value).then(json => showAll(json))
     } else if (category.value === "multi") {
       window.onload = fetchR(serverUrl + "/api/search/multi/" + keyword.value).then(json => showAll(json))
-    } else { alert("category incorrect!") } // TODO: change alert to console.log
+    } else { alert("category incorrect!") }
   }
 }
 
@@ -91,7 +91,13 @@ function showAll(json) {
       cardText.appendChild(document.createElement("BR"))
 
       var yearType = document.createElement("p")
-      yearType.innerText = (res[i].release_date || res[i].first_air_date) + " | " + res[i].genres.join(", ")
+      if (res[i].genres.length < 1) {
+        yearType.innerText = (res[i].release_date || res[i].first_air_date) + " | " + "N/A"
+      } else {
+        yearType.innerText = (res[i].release_date || res[i].first_air_date) + " | " + res[i].genres.join(", ")
+      }
+      // alert(res[i].genres.length)
+      // yearType.innerText = (res[i].release_date || res[i].first_air_date) + " | " + res[i].genres.join(", ")
       cardText.appendChild(yearType)
 
       var vote = document.createElement("P")
@@ -159,14 +165,22 @@ function showDetail(json, type, ...rest) {
      + ">" + " \u24D8" + "</a>"
     if (res.name) {alert("This is a tv, not movie")} // TODO: remove this
     var yearType = document.getElementById("inner-yeartype")
-    yearType.innerText = (res.release_date || res.first_air_date) + " | " + res.genres.join(", ")
+    if (res.genres.length < 1) {
+      yearType.innerText = (res.release_date || res.first_air_date) + " | " + "N/A"
+    } else {
+      yearType.innerText = (res.release_date || res.first_air_date) + " | " + res.genres.join(", ")
+    }
     var vote = document.getElementById("inner-vote")
     vote.innerHTML = "<span>" + "\u2B51" + " " + res.vote_average + "</span>" + " " + res.vote_count
     + " votes"
     var overview = document.getElementById("inner-overview")
     overview.innerHTML = rest
     var language = document.getElementById("language")
-    language.innerText = "Spoken languages: " + res.spoken_languages.join(", ")
+    if (res.spoken_languages.length < 1) {
+      language.innerText = "Spoken languages: " + "N/A"
+    } else {
+      language.innerText = "Spoken languages: " + res.spoken_languages.join(", ")
+    }
   }
   else if (type === "credit") {
     var tmp = res.results
@@ -208,7 +222,6 @@ function showDetail(json, type, ...rest) {
       // if (tmp[i].rating === "" || tmp[i].rating === "N/A") {
         //   ratings[i].innerText = "N/A"
         // } 
-      // TODO: server返回N/A
       ratings[i].innerText = "\u2B51" + tmp[i].rating
       comments[i].innerText = tmp[i].content
       reviews[i].style.display = "block"
@@ -216,7 +229,6 @@ function showDetail(json, type, ...rest) {
     for (var j = i; j < 5; j++) {
       reviews[j].style.display = "none"
     }
-
   } else {
     alert("wrong type of detail request!")
   }

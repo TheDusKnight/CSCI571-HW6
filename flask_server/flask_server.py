@@ -237,7 +237,7 @@ def movie_detail(movie_id):
         if 'title' in data and data['title']:
             response['title'] = data['title']
         else:
-            response['title'] = ''
+            response['title'] = 'N/A'
         if 'runtime' in data and data['runtime']:
             response['runtime'] = data['runtime']
         else:
@@ -245,7 +245,7 @@ def movie_detail(movie_id):
         if 'release_date' in data and data['release_date']:
             response['release_date'] = datetime.strptime(data['release_date'], '%Y-%m-%d').strftime('%Y')
         else:
-            response['release_date'] = ''
+            response['release_date'] = 'N/A'
         if 'spoken_languages' in data and data['spoken_languages']:
             response['spoken_languages'] = [tmp['english_name'] for tmp in data['spoken_languages']]
         else:
@@ -299,7 +299,7 @@ def movie_credit(movie_id):
             if 'name' in data and data['name']:
                 instance['name'] = data['name']
             else:
-                instance['name'] = ''
+                instance['name'] = 'N/A'
             if 'profile_path' in data and data['profile_path']:
                 instance['profile_path'] = 'https://image.tmdb.org/t/p/w185' + data['profile_path']
             else:
@@ -307,7 +307,7 @@ def movie_credit(movie_id):
             if 'character' in data and data['character']:
                 instance['character'] = data['character']
             else:
-                instance['character'] = ''
+                instance['character'] = 'N/A'
             
             response['results'].append(instance)
 
@@ -342,24 +342,24 @@ def movie_review(movie_id):
                 if 'username' in author_details and author_details['username']:
                     instance['username'] = author_details['username']
                 else:
-                    instance['username'] = ''
+                    instance['username'] = 'N/A'
                 if 'rating' in author_details and author_details['rating']:
                     # instance['rating'] = str(author_details['rating'] / 2) + '/5'
                     instance['rating'] = str(float('%.1f' % (author_details['rating'] / 2))) + '/5'
                 else:
-                    instance['rating'] = ''
+                    instance['rating'] = 'N/A'
             else:
-                instance['username'] = ''
-                instance['rating'] = ''
+                instance['username'] = 'N/A'
+                instance['rating'] = 'N/A'
             if 'content' in data and data['content']:
-                instance['content'] = data['content']
+                instance['content'] = data['content'].strip()
             else:
-                instance['content'] = ''
+                instance['content'] = 'N/A'
             if 'created_at' in data and data['created_at']:
                 # instance['created_at'] = datetime.fromisoformat(data['created_at']).strftime('%Y')
                 instance['created_at'] = str(parse(data['created_at']).date()).replace('-', '/')
             else:
-                instance['created_at'] = ''
+                instance['created_at'] = 'N/A'
             
             response['results'].append(instance)
     
@@ -398,7 +398,7 @@ def tv_detail(tv_id):
         if 'name' in data and data['name']:
             response['name'] = data['name']
         else:
-            response['name'] = ''
+            response['name'] = 'N/A'
         if 'number_of_seasons' in data and data['number_of_seasons']:
             response['number_of_seasons'] = data['number_of_seasons']
         else:
@@ -408,13 +408,13 @@ def tv_detail(tv_id):
         else:
             response['episode_run_time'] = []
         if 'overview' in data and data['overview']:
-            response['overview'] = data['overview']
+            response['overview'] = data['overview'].strip()
         else:
-            response['overview'] = ''
+            response['overview'] = 'N/A'
         if 'first_air_date' in data and data['first_air_date']:
             response['first_air_date'] = datetime.strptime(data['first_air_date'], '%Y-%m-%d').strftime('%Y')
         else:
-            response['first_air_date'] = ''
+            response['first_air_date'] = 'N/A'
         if 'spoken_languages' in data and data['spoken_languages']:
             response['spoken_languages'] = [tmp['english_name'] for tmp in data['spoken_languages']]
         else:
@@ -468,7 +468,7 @@ def tv_credit(tv_id):
             if 'name' in data and data['name']:
                 instance['name'] = data['name']
             else:
-                instance['name'] = ''
+                instance['name'] = 'N/A'
             if 'profile_path' in data and data['profile_path']:
                 instance['profile_path'] = 'https://image.tmdb.org/t/p/w185' + data['profile_path']
             else:
@@ -476,7 +476,7 @@ def tv_credit(tv_id):
             if 'character' in data and data['character']:
                 instance['character'] = data['character']
             else:
-                instance['character'] = ''
+                instance['character'] = 'N/A'
             
             response['results'].append(instance)
 
@@ -511,24 +511,24 @@ def tv_review(tv_id):
                 if 'username' in author_details and author_details['username']:
                     instance['username'] = author_details['username']
                 else:
-                    instance['username'] = ''
+                    instance['username'] = 'N/A'
                 if 'rating' in author_details and author_details['rating']:
                     # instance['rating'] = str(author_details['rating'] / 2) + '/5'
                     instance['rating'] = str(float('%.1f' % (author_details['rating'] / 2))) + '/5'
                 else:
-                    instance['rating'] = ''
+                    instance['rating'] = 'N/A'
             else:
-                instance['username'] = ''
-                instance['rating'] = ''
+                instance['username'] = 'N/A'
+                instance['rating'] = 'N/A'
             if 'content' in data and data['content']:
-                instance['content'] = data['content']
+                instance['content'] = data['content'].strip()
             else:
-                instance['content'] = ''
+                instance['content'] = 'N/A'
             if 'created_at' in data and data['created_at']:
                 # instance['created_at'] = datetime.fromisoformat(data['created_at']).strftime('%Y')
                 instance['created_at'] = str(parse(data['created_at']).date()).replace('-', '/')
             else:
-                instance['created_at'] = ''
+                instance['created_at'] = 'N/A'
             
             response['results'].append(instance)
     
@@ -540,11 +540,11 @@ def parse_movie_data(data):
     if 'title' in data and data['title']:
         instance['title'] = data['title']
     else:
-        instance['title'] = ''
+        instance['title'] = 'N/A'
     if 'overview' in data and data['overview']:
-        instance['overview'] = data['overview']
+        instance['overview'] = data['overview'].strip()
     else:
-        instance['overview'] = ''
+        instance['overview'] = 'N/A'
     if 'poster_path' in data and data['poster_path']:
         instance['poster_path'] = 'https://image.tmdb.org/t/p/w185' + data['poster_path']
     else:
@@ -552,7 +552,7 @@ def parse_movie_data(data):
     if 'release_date' in data and data['release_date']:
         instance['release_date'] = datetime.strptime(data['release_date'], '%Y-%m-%d').strftime('%Y')
     else:
-        instance['release_date'] = ''
+        instance['release_date'] = 'N/A'
     if 'vote_average' in data and data['vote_average']:
         instance['vote_average'] = str(data['vote_average'] / 2) + '/5'
     else:
@@ -575,11 +575,11 @@ def parse_tv_data(data):
     if 'name' in data and data['name']:
         instance['name'] = data['name']
     else:
-        instance['name'] = ''
+        instance['name'] = 'N/A'
     if 'overview' in data and data['overview']:
-        instance['overview'] = data['overview']
+        instance['overview'] = data['overview'].strip()
     else:
-        instance['overview'] = ''
+        instance['overview'] = 'N/A'
     if 'poster_path' in data and data['poster_path']:
         instance['poster_path'] = 'https://image.tmdb.org/t/p/w185' + data['poster_path']
     else:
@@ -587,7 +587,7 @@ def parse_tv_data(data):
     if 'first_air_date' in data and data['first_air_date']:
         instance['first_air_date'] = datetime.strptime(data['first_air_date'], '%Y-%m-%d').strftime('%Y')
     else:
-        instance['first_air_date'] = ''
+        instance['first_air_date'] = 'N/A'
     if 'vote_average' in data and data['vote_average']:
         instance['vote_average'] = str(data['vote_average'] / 2) + '/5'
     else:
