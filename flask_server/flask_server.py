@@ -341,8 +341,9 @@ def movie_review(movie_id):
             else:
                 instance['content'] = 'N/A'
             if 'created_at' in data and data['created_at']:
-                # instance['created_at'] = datetime.fromisoformat(data['created_at']).strftime('%Y')
-                instance['created_at'] = str(parse(data['created_at']).date()).replace('-', '/')
+                # s = str(parse(data['created_at']).date()).replace('-', '/')
+                t = parse(data['created_at']).date()
+                instance['created_at'] = t.strftime("%m/%d/%Y")
             else:
                 instance['created_at'] = 'N/A'
             
@@ -510,8 +511,10 @@ def tv_review(tv_id):
             else:
                 instance['content'] = 'N/A'
             if 'created_at' in data and data['created_at']:
-                # instance['created_at'] = datetime.fromisoformat(data['created_at']).strftime('%Y')
-                instance['created_at'] = str(parse(data['created_at']).date()).replace('-', '/')
+                # instance['created_at'] = str(parse(data['created_at']).date()).replace('-', '/')
+
+                t = parse(data['created_at']).date()
+                instance['created_at'] = t.strftime("%m/%d/%Y")
             else:
                 instance['created_at'] = 'N/A'
             
