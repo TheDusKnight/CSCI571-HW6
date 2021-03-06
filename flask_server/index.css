@@ -81,36 +81,10 @@ html,body{
 }
 
 .navBar {
-  text-align: right;
   padding-top: 30px;
   /* Change to abs? */
   position: absolute;
   margin-left: 100px;
-}
-.navBar a {
-  padding-bottom: 0px;
-}
-#home-button {
-  font-size: 13px;
-  position: absolute;
-  top: 60px;
-  left: 120px;
-  padding-right: 13px;
-  padding-bottom: 20px;
-  /* margin-left: 30px; */
-  border-bottom: 0.5px solid whitesmoke;
-  margin-bottom: 30px;
-  text-align: right;
-}
-#search-button {
-  font-size: 13px;
-  position: absolute;
-  top: 120px;
-  left: 120px;
-  padding-bottom: 20px;
-  padding-right: 11px;
-  border-bottom: 0.5px solid whitesmoke;
-  text-align: right;
 }
 
 h3 {
@@ -118,7 +92,7 @@ h3 {
   /* margin-right: 5px; */
   color:rgb(166, 36, 30);
   /* font-size: larger; */
-  font-weight: 900;
+  font-weight: bold;
 }
 
 .horizontalGradual {
