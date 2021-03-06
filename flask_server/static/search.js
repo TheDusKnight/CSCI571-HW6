@@ -10,11 +10,11 @@ function isnull(val) {
   var str = val.replace(/(^\s*)|(\s*$)/g, '');//把val首尾的空格去掉。
 
   if (str == '' || str == undefined || str == null) {//输入框中输入空格也为空
-    console.log('空');
+    console.log('empty');
     console.log("str.length===" + str.length);
-    return true; // TODO: change to true
+    return true;
   } else {
-    console.log('非空');//输入框中输入null、undefined也为非空
+    console.log('non empty');//输入框中输入null、undefined也为非空
     console.log("str.length===" + str.length);
     return false;
   }
@@ -27,14 +27,12 @@ async function fetchR(inputLnk) {
     responseType: 'json',
   });
   let result = await response.text()
-  // console.log(result) // display fetch result log
   return result
 }
 
 function showResults() {
   var keyword = document.getElementById("keyword")
   var category = document.getElementById("category")
-  // var results = document.getElementById("results")
   if (isnull(keyword.value) === true || isnull(category.value) === true) {
     alert("Please enter valid values.")
   } else {
@@ -56,9 +54,6 @@ function showAll(json) {
     results.innerHTML = "<p id='no-result'>No results found.</p>"
   } else {
     results.innerHTML = "<p>Showing results...</p>" // 清除之前内容，显示新的内容
-    // alert(res[0].poster_path)
-    // alert(res.length)
-    // results.style.display = "block" // display show results?
     for (var i = 0; i < res.length; i++) {
       var card = document.createElement('DIV')
       card.className = "card"
@@ -66,18 +61,15 @@ function showAll(json) {
 
       var img = document.createElement('IMG');
       img.className = "result-img"
-      // img.src = 'static/img/poster-placeholder.png'
       img.src = res[i].poster_path
       card.appendChild(img)
 
       var cardText = document.createElement("DIV")
       cardText.className = "card-text"
-      // result.appendChild(cardText)
       card.appendChild(cardText)
 
       var title = document.createElement("H2")
       title.className = "card-title"
-      // title.innerText = (res[i].title || res[i].name)
       if (res[i].title) {
         title.innerText = res[i].title
         title.id = "movie"
@@ -86,7 +78,6 @@ function showAll(json) {
         title.id = "tv"
       }
       cardText.appendChild(title)
-      // if (res[i].title) alert("Movie")
 
       cardText.appendChild(document.createElement("BR"))
 
@@ -96,8 +87,6 @@ function showAll(json) {
       } else {
         yearType.innerText = (res[i].release_date || res[i].first_air_date) + " | " + res[i].genres.join(", ")
       }
-      // alert(res[i].genres.length)
-      // yearType.innerText = (res[i].release_date || res[i].first_air_date) + " | " + res[i].genres.join(", ")
       cardText.appendChild(yearType)
 
       var vote = document.createElement("P")
@@ -121,12 +110,10 @@ function showAll(json) {
       var modal = document.getElementById("myModal")
       var span = document.getElementsByClassName("close")[0]
       showMore.onclick = function () {
-        // alert(this.id)
         var id = this.id // parseInt() ?
         var index = this.index
         var overview = document.getElementsByClassName("text-overflow")[index].innerHTML
         var type = document.getElementsByClassName("card-title")[index].id
-        // alert(type)
 
         // Call API first
         if (type === "movie") {
@@ -163,7 +150,7 @@ function showDetail(json, type, ...rest) {
     var website = "https://www.themoviedb.org/movie/" + res.id
     title.innerHTML = (res.title || res.name) + "<a id='website' href=" + website + " target='_blank'"
      + ">" + " \u24D8" + "</a>"
-    if (res.name) {alert("This is a tv, not movie")} // TODO: remove this
+    if (res.name) {console.log("This is a tv, not movie")}
     var yearType = document.getElementById("inner-yeartype")
     if (res.genres.length < 1) {
       yearType.innerText = (res.release_date || res.first_air_date) + " | " + "N/A"
@@ -188,9 +175,6 @@ function showDetail(json, type, ...rest) {
     var cols = document.getElementsByClassName("column")
     if (tmp.length < 1) {
       document.getElementById("no-cast").style.display = "block"
-      // for (let i = 0; i < 8; i++ ) {
-      //   cols[i].style.display = "none"
-      // }
     }
 
     var imgs = document.getElementsByClassName("person-img")
@@ -219,9 +203,6 @@ function showDetail(json, type, ...rest) {
     var comments = document.getElementsByClassName("comment")
     for (var i = 0; i < tmp.length; i++) {
       nameDates[i].innerHTML = "<span>" + tmp[i].username + "</span>" + " on " + tmp[i].created_at
-      // if (tmp[i].rating === "" || tmp[i].rating === "N/A") {
-        //   ratings[i].innerText = "N/A"
-        // } 
       ratings[i].innerText = "\u2B51" + tmp[i].rating
       comments[i].innerText = tmp[i].content
       reviews[i].style.display = "block"

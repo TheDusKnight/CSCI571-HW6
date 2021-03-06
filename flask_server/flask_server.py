@@ -12,9 +12,6 @@ CORS(app)
 movie_genre = {}
 tv_genre = {}
 
-# TODO: 可能前端handle 500 Internal Server Error when send wrong query string
-# TODO: 注意average vote保留最多两位小数，如果刚好是整数怎么办？
-# TODO: 将所有空结果改成'N/A'
 @app.before_first_request
 def extract_genre():
     raw_movie_genre = requests.get("https://api.themoviedb.org/3/genre/movie/list?api_key=788c93d7dc54e946665b5958c8ff0a3a&language=en-US")
@@ -29,21 +26,9 @@ def extract_genre():
         val = data['name']
         tv_genre[key] = val
 
-    # print(movie_genre)
-
-# @app.before_first_request
-# def startup():
-#     print('before first')
-
 @app.route("/")
 def hello_world():
-    # return render_template('index.html')
     return current_app.send_static_file('index.html')
-
-# @app.route("/image.tmdb.org/t/p/w500")
-# @app.route("/w500")
-# def image(path):
-#     pass
 
 @app.route("/api/movies")
 def get_trending_movies():

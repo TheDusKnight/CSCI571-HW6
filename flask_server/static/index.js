@@ -1,39 +1,6 @@
 'use strict';
-// console.log('window inner sizes: ' + window.innerWidth + ' x ' + window.innerHeight)
 console.log("index.js triggered")
 var serverUrl = "http://127.0.0.1:5000"
-
-//
-// document.getElementById("home-button").onmouseover = function() {hmouseOver()};
-// document.getElementById("home-button").onmouseout = function() {hmouseOut()};
-// function hmouseOver() {
-//   document.getElementById("home-button").style.color = "rgb(166, 36, 30)";
-// }
-// function hmouseOut() {
-//   var search = document.getElementById("search-button").style.color
-//   var home = document.getElementById("search-button").style.color
-//   if (search === "white") {
-//     home = "rgb(166, 36, 30)"
-//   }
-// }
-
-// document.getElementById("search-button").onmouseover = function() {smouseOver()};
-// document.getElementById("search-button").onmouseout = function() {smouseOut()};
-// function smouseOver() {
-//   document.getElementById("search-button").style.color = "rgb(166, 36, 30)";
-// }
-// function smouseOut() {
-//   // alert("hellow")
-//   // document.getElementById("search-button").style.color = "white";
-
-//   var search = document.getElementById("search-button").style.color
-//   var home = document.getElementById("home-button").style.color
-//   alert(home)
-//   if (home === "rgb(166, 36, 30)") {
-//     search = "white"
-//   }
-// }
-//
 
 function toggleSearch() {
   document.getElementById('home').style.display = "none"
@@ -50,9 +17,6 @@ function toggleSearch() {
 
 function toggleHome() {
   document.getElementById('search').style.display = "none"
-  // TODO: 这段有问题
-  // var results = document.getElementById('results')
-  // if (results) {results.style.display = "none"}
   document.getElementById('results').innerHTML = "" // 把cards清理掉
   document.getElementById('home').style.display = "block"
 
