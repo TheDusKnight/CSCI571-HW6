@@ -3,9 +3,16 @@
   /* position: relative; */
   /* display: none; */
 /* } */
-/* https://www.daqianduan.com/6179.html */
-/* https://blog.csdn.net/zgh0711/article/details/78270555 */
-/* https://www.zoo.team/article/text-overflow */
+.inner-text-overflow{
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+  width: 800px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .text-overflow{
   margin-top: 20px;
   margin-bottom: 20px;
@@ -15,6 +22,9 @@
   -webkit-line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.comment{
+  font-size: 12px;
 }
 .card{
   width: 750px;
@@ -101,6 +111,78 @@
   /* width: 80%; */
   width: 800px;
 }
+#inner-title {
+  padding-top: 15px;
+}
+#inner-vote span {
+  color: brown;
+}
+#language {
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 900;
+}
+.modal-content p {
+  padding-top: 10px;
+}
+.modal-content h1 {
+  font-size: 20px;
+  font-weight: 900px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+.name-date {
+  font-size: 14px;
+}
+.name-date span {
+  font-weight: 900;
+}
+.rating {
+  color: brown;
+  font-size: 14px;
+}
+#website {
+  font-size: small;
+  cursor: pointer;
+  text-decoration: none;
+  color: brown;
+}
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  font-size: 14px;
+  display: none;
+  text-align: center;
+  float: left;
+  /* width: 33.33%; */
+  width: 185px;
+  padding: 5px;
+  /* background-color:darkorange; */
+}
+.column p {
+  padding-top: 0px;
+  /* color: rebeccapurple; */
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+p.bold-name {
+  font-weight: 900;
+}
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+#no-cast {
+  display: none;
+}
+#no-review {
+  display: none;
+}
+.review {
+  display: none;
+}
 /* The Close Button */
 .close {
   color: #aaaaaa;
@@ -113,39 +195,4 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
-}
-
-/* Three image containers (use 25% for four, and 50% for two, etc) */
-.column {
-  display: none;
-  text-align: center;
-  float: left;
-  /* width: 33.33%; */
-  width: 185px;
-  padding: 5px;
-  /* background-color:darkorange; */
-}
-.column p {
-  /* color: rebeccapurple; */
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
-}
-
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-#no-cast {
-  display: none;
-}
-#no-review {
-  display: none;
-}
-
-.review {
-  display: none;
 }

@@ -154,7 +154,9 @@ function showDetail(json, type, ...rest) {
     var img = document.getElementById("inner-img")
     img.src = res.backdrop_path
     var title = document.getElementById("inner-title")
-    title.innerText = (res.title || res.name)
+    var website = "https://www.themoviedb.org/movie/" + res.id
+    title.innerHTML = (res.title || res.name) + "<a id='website' href=" + website + " target='_blank'"
+     + ">" + " \u24D8" + "</a>"
     if (res.name) {alert("This is a tv, not movie")} // TODO: remove this
     var yearType = document.getElementById("inner-yeartype")
     yearType.innerText = (res.release_date || res.first_air_date) + " | " + res.genres.join(", ")
@@ -202,7 +204,7 @@ function showDetail(json, type, ...rest) {
     var ratings = document.getElementsByClassName("rating")
     var comments = document.getElementsByClassName("comment")
     for (var i = 0; i < tmp.length; i++) {
-      nameDates[i].innerHTML = tmp[i].username + " on " + tmp[i].created_at
+      nameDates[i].innerHTML = "<span>" + tmp[i].username + "</span>" + " on " + tmp[i].created_at
       // if (tmp[i].rating === "" || tmp[i].rating === "N/A") {
         //   ratings[i].innerText = "N/A"
         // } 
