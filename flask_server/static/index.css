@@ -92,6 +92,7 @@ html,body{
 }
 #home-button {
   font-size: 13px;
+  color: rgb(166, 36, 30);
   position: absolute;
   top: 60px;
   left: 120px;
@@ -104,13 +105,21 @@ html,body{
 }
 #search-button {
   font-size: 13px;
+  /* color: rgb(166, 36, 30); */
   position: absolute;
   top: 120px;
   left: 120px;
   padding-bottom: 20px;
   padding-right: 11px;
-  border-bottom: 0.5px solid whitesmoke;
+  /* border-bottom: 0.5px solid whitesmoke; */
+  border-bottom: 0.5px solid black;
   text-align: right;
+}
+#search-button a:hover {
+  color: rgb(166, 36, 30);
+}
+#home-button a:hover {
+  color: rgb(166, 36, 30);
 }
 
 h3 {
