@@ -124,21 +124,20 @@ function showAll(json) {
 
         // Call API first
         if (type === "movie") {
-          // 看看对不对
           window.onload = fetchR(serverUrl + "/api/get/movie/detail/" + id).then(json => showDetail(json, "detail", overview))
           window.onload = fetchR(serverUrl + "/api/get/movie/credit/" + id).then(json => showDetail(json, "credit"))
           window.onload = fetchR(serverUrl + "/api/get/movie/review/" + id).then(json => showDetail(json, "review"))
         }
-        // else if (type === "tv") {
-
-        // } else {
-        //   alert("title or name field is invalid")
-        // }
-
+        else if (type === "tv") {
+          window.onload = fetchR(serverUrl + "/api/get/tv/detail/" + id).then(json => showDetail(json, "detail", overview))
+          window.onload = fetchR(serverUrl + "/api/get/tv/credit/" + id).then(json => showDetail(json, "credit"))
+          window.onload = fetchR(serverUrl + "/api/get/tv/review/" + id).then(json => showDetail(json, "review"))
+        } else {
+          alert("title or name field is invalid")
+        }
         // open model second
         modal.style.display = "block"
       }
-
       // When the user clicks on <span> (x), close the modal finally
       span.onclick = function () {
         document.getElementById("no-cast").style.display = "none"
