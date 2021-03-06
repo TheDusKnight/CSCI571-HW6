@@ -1,6 +1,7 @@
 'use strict';
 console.log("search.js triggered")
-var serverUrl = "http://127.0.0.1:5000"
+// var serverUrl = "http://127.0.0.1:5000"
+var serverUrl = "https://trevor-hello-movie.azurewebsites.net"
 
 function clearText() {
   document.getElementById("search-form").reset()
