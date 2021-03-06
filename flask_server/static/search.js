@@ -126,7 +126,7 @@ function showAll(json) {
         if (type === "movie") {
           // 看看对不对
           window.onload = fetchR(serverUrl + "/api/get/movie/detail/" + id).then(json => showDetail(json, "detail", overview))
-          // window.onload = fetchR(serverUrl + "/api/get/movie/credit/" + id).then(json => showDetail(json, "credit"))
+          window.onload = fetchR(serverUrl + "/api/get/movie/credit/" + id).then(json => showDetail(json, "credit"))
           // window.onload = fetchR(serverUrl + "/api/get/movie/review/" + id).then(json => showDetail(json, "review"))
         } 
         // else if (type === "tv") {
@@ -141,6 +141,8 @@ function showAll(json) {
 
       // When the user clicks on <span> (x), close the modal finally
       span.onclick = function () {
+        document.getElementById("no-cast").style.display = "none"
+
         modal.style.display = "none";
       }
     }
@@ -164,12 +166,14 @@ function showDetail(json, type, ...rest) {
     overview.innerHTML = rest
     var language = document.getElementById("language")
     language.innerText = "Spoken languages: " + res.spoken_languages.join(", ")
-  } else if (type === "credit") {
+  }
+  else if (type === "credit") {
     var tmp = res.results
+
     // var modalContnet = document.getElementsByClassName("modal-content")[0]
     // if (tmp.length < 1) {
     //   var na = document.createElement("P")
-    //   na.innerText = "N/A" // TODO: check 是不是有效果
+    //   na.innerText = "N/A" // 有效果但是需要每次清除
     //   modalContnet.appendChild(na)
     // } else {
     //   for (var i = 0; i < tmp.length; i++) {
@@ -193,22 +197,28 @@ function showDetail(json, type, ...rest) {
 
 
     // 注入图片方式
-    // if (tmp.length < 1) {
-    //   document.getElementsByClassName("row").style.display = "none"
-    // } else {
-    //   var imgs = document.getElementsByClassName("person-img")
-    //   var boldNames = document.getElementsByClassName("bold-name")
-    //   var thinNames = document.getElementsByClassName("thin-name")
-    //   for (var i = 0; i < tmp.length; i++) {
-    //     imgs[i].src = tmp[i].profile_path
-    //     boldNames[i].innerText = tmp[i].name
-    //     thinNames[i].innerText = tmp[i].character
-    //   }
-    //   var cols = document.getElementsByClassName("column")
-    //   for (var j = i; j < 8; j++) {
-    //     cols[j].innerHTML = ""
-    //   }
-    // }
+    var cols = document.getElementsByClassName("column")
+    if (tmp.length < 1) {
+      document.getElementById("no-cast").style.display = "block"
+      // for (let i = 0; i < 8; i++ ) {
+      //   cols[i].style.display = "none"
+      // }
+    }
+
+    var imgs = document.getElementsByClassName("person-img")
+    var boldNames = document.getElementsByClassName("bold-name")
+    var thinNames = document.getElementsByClassName("thin-name")
+    for (var i = 0; i < tmp.length; i++) {
+      imgs[i].src = tmp[i].profile_path
+      boldNames[i].innerText = tmp[i].name
+      thinNames[i].innerText = tmp[i].character
+      cols[i].style.display = "block"
+    }
+    // 剩余图片全部隐藏
+    for (var j = i; j < 8; j++) {
+      cols[j].style.display = "none"
+    }
+
   } 
   // else if (type === "review") {
 
